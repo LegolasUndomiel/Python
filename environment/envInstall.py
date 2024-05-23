@@ -1,7 +1,8 @@
 # coding=utf-8
 # gcc g++ build-essential perl make cmake code xmake
 # texlive openmpi cuda blender OpenGL OpenCV OpenMP
-# anaconda matplotlib numpy cupy sympy
+# anaconda matplotlib numpy cupy sympy manimGL
+# WebGL
 import os
 import threading
 import subprocess
