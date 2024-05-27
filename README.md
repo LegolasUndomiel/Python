@@ -1,0 +1,4 @@
+- gcc g++ build-essential perl make cmake code xmake
+- texlive openmpi cuda blender OpenGL OpenCV OpenMP
+- anaconda matplotlib numpy cupy sympy manimGL
+- WebGL
