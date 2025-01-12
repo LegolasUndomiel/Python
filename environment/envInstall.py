@@ -1,13 +1,18 @@
 # coding=utf-8
-# gcc g++ build-essential perl make cmake code xmake
-# texlive openmpi cuda blender OpenGL OpenCV OpenMP
-# anaconda matplotlib numpy cupy sympy manimGL
-# WebGL
+# gcc g++ gdb build-essential perl make cmake vscode xmake llvm git ssh OneAPI Node Java
+# TeX Live tex-fmt OpenMPI CUDA blender OpenGL OpenCV OpenMP ParaView WebGL
+# Anaconda matplotlib numpy cupy sympy manimGL
+# OBS Studio GIMP
+# Zotero Calibre Obsidian Nutstore Clash fcitx redshift sougoupinyin WeChat QQ WeMeet KDE WezTerm Neovim Ollama Chatbox
+# i3wm scrcpy PDFSam flameshot nerdfont QT
+# MATLAB
+# Isaac Sim ROS2
 import os
 import threading
 import subprocess
 import requests
 from tqdm import tqdm
+import shutil
 
 
 def download(url, path):
@@ -57,7 +62,7 @@ def fontsInstall():
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz',
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Noto.tar.xz',
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/RobotoMono.tar.xz',
-            'https://github.com/laishulu/Sarasa-Term-SC-Nerd/releases/latest/download/sarasa-term-sc-nerd.ttf.tar.gz',
+            'https://github.com/laishulu/Sarasa-Term-SC-Nerd/releases/latest/download/SarasaTermSCNerd.ttf.tar.gz',
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SpaceMono.tar.xz',
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Tinos.tar.xz',
             'https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Ubuntu.tar.xz',
@@ -79,10 +84,10 @@ def fontsInstall():
     for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith('.tar.xz') or file.endswith('.tar.gz'):
-                dName = file.split('.')[0]
-                dPath = os.path.join(root, dName)
+                dPath = os.path.join(root, 'NerdFonts')
                 if not os.path.exists(dPath):
                     os.makedirs(dPath)
+                dName = file.split('.')[0]
 
                 p = subprocess.Popen('tar -xf %s -C %s' %(os.path.join(root, file), dPath), shell=True)
                 p.wait()
@@ -92,3 +97,8 @@ def fontsInstall():
 
 if __name__ == '__main__':
     fontsInstall()
+    # sudo mv NerdFonts /usr/share/fonts
+    # cd /usr/share/fonts/NerdFonts
+    # sudo mkfontscale # 生成核心字体信息
+    # sudo mkfontdir # 生成字体文件夹
+    # sudo fc-cache -fv # 刷新系统字体缓存
