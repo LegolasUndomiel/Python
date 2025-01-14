@@ -12,7 +12,6 @@ import threading
 import subprocess
 import requests
 from tqdm import tqdm
-import shutil
 
 
 def download(url, path):
